@@ -2,8 +2,8 @@
 import { Input, Navbar, NavbarContent } from "@nextui-org/react";
 import { ChevronLeft, Menu, SearchCheck } from "lucide-react";
 import React from "react";
-// import { useSidebarContext } from "../../layout/layout-context";
 import { UserDropdown } from "./user-dropdown";
+import { useSidebarContext } from "../../layout/layout-context";
 // import { UserDropdown } from "./user-dropdown";
 
 interface Props {
@@ -11,8 +11,8 @@ interface Props {
 }
 
 export const NavbarWrapper = ({ children }: Props) => {
-  //   const { collapsed, setCollapsed } = useSidebarContext();
-  //   console.log(collapsed);
+  const { collapsed, setCollapsed } = useSidebarContext();
+  console.log(collapsed);
   return (
     <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
       <Navbar
@@ -23,11 +23,11 @@ export const NavbarWrapper = ({ children }: Props) => {
         }}
       >
         <NavbarContent className="md:hidden">
-          {/* {collapsed ? (
+          {collapsed ? (
             <ChevronLeft onClick={setCollapsed}></ChevronLeft>
           ) : (
             <Menu onClick={setCollapsed}></Menu>
-          )} */}
+          )}
         </NavbarContent>
         <NavbarContent className="w-full max-md:hidden">
           <Input

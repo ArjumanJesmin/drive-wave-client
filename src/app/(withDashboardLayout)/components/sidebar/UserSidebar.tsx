@@ -1,5 +1,5 @@
 "use client";
-import { useSidebarContext } from "../../dashboard/layout/layout-context";
+import { useSidebarContext } from "../../layout/layout-context";
 import { CollapseItems } from "./collapse-items";
 import { SidebarItem } from "./sidebar-item";
 

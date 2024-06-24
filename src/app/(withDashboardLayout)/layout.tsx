@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DashboardLayout from "./layout/dashboardLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,5 +11,5 @@ export default function DashboardMainLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{children}</div>;
+  return <DashboardLayout>{children}</DashboardLayout>;
 }
