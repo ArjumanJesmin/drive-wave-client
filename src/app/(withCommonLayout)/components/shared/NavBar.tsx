@@ -9,12 +9,21 @@ import {
   NavbarItem,
   Link,
   Button,
+  NavbarMenuItem,
 } from "@nextui-org/react";
 import { Flower } from "lucide-react";
 import { ThemeSwitcher } from "@/app/components/ThemeSwitcher";
-import DropdownMenuComponent from "./DropdownMenuComponent";
+import MenuComponent from "./DropdownMenuComponent";
 
-const NavBar: React.FC = () => {
+const NavBar: React.FC = ({ user }: any) => {
+  console.log(user);
+
+  const routeMap: Record<string, string> = {
+    user: "/dashboard",
+    admin: "/dashboard/admin",
+    driver: "/dashboard/driver",
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -37,21 +46,27 @@ const NavBar: React.FC = () => {
           <Flower />
           <p className="font-bold text-xl text-lime-500">DriveWave</p>
         </NavbarBrand>
-        <NavbarItem>
-          <Link color="foreground" href="#">
+        <NavbarMenuItem>
+          <Link className="w-full" color="foreground" href="/features">
             Features
           </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link className="w-full" color="foreground" href="#">
             Customers
           </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          {user && (
+            <Link
+              className="w-full"
+              color="foreground"
+              href={routeMap[user?.role]}
+            >
+              Dashboard
+            </Link>
+          )}
+        </NavbarMenuItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
@@ -68,8 +83,12 @@ const NavBar: React.FC = () => {
         </NavbarItem>
       </NavbarContent>
 
-      {/* Use the DropdownMenu component here */}
-      <DropdownMenuComponent />
+      {/* Render the MenuComponent here if the menu is open */}
+      {isMenuOpen && (
+        <div className="sm:hidden">
+          <MenuComponent />
+        </div>
+      )}
     </Navbar>
   );
 };

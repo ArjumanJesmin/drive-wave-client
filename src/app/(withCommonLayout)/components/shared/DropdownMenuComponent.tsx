@@ -1,7 +1,7 @@
 import React from "react";
 import { NavbarMenu, NavbarMenuItem, Link } from "@nextui-org/react";
 
-const DropdownMenuComponent: React.FC = () => {
+const MenuComponent: React.FC = () => {
   return (
     <NavbarMenu>
       <NavbarMenuItem>
@@ -19,13 +19,8 @@ const DropdownMenuComponent: React.FC = () => {
           Dashboard
         </Link>
       </NavbarMenuItem>
-      <NavbarMenuItem>
-        <Link className="w-full" color="warning" href="/login">
-          Login
-        </Link>
-      </NavbarMenuItem>
     </NavbarMenu>
   );
 };
 
-export default DropdownMenuComponent;
+export default MenuComponent;

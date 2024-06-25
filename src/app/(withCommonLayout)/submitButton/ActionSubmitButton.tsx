@@ -2,7 +2,7 @@
 import { Button, Spinner } from "@nextui-org/react";
 import { useFormStatus } from "react-dom";
 
-const ActionSubmitButton = () => {
+const ActionSubmitButton = ({ children }: { children: React.ReactNode }) => {
   const { pending } = useFormStatus();
 
   return (
@@ -14,7 +14,7 @@ const ActionSubmitButton = () => {
       color="primary"
       variant="faded"
     >
-      {pending ? <Spinner /> : "Submit"}
+      {pending ? <Spinner /> : children}
     </Button>
   );
 };

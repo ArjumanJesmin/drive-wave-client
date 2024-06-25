@@ -46,7 +46,7 @@ const RegisterForm = () => {
         </Link>
       </div>
       <div className="justify-center items-center">
-        <ActionSubmitButton />
+        <ActionSubmitButton>Register</ActionSubmitButton>
       </div>
     </form>
   );
